@@ -15,7 +15,7 @@ class FunctionsHelper
             "203" => "Transaction Already Issued",
             "401" => "Unauthorized",
             "402" => "Successfully logged out",
-            "403" => "Search Failed",
+            "403" => "Invalid Parameter",
             "404" => "Search Not Found",
             "405" => "Failed Create Invoice",
             "406" => "Balance Not Enough",

@@ -16,6 +16,7 @@ class Article extends Migration
         Schema::create('article', function (Blueprint $table) {
             $table->increments('article_id');
             $table->string('article_title');
+            $table->string('article_slug');
             $table->text('article_content');
             $table->string('article_image');
             $table->integer('article_status');
