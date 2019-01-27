@@ -65,6 +65,7 @@ $app->singleton(
 
  $app->routeMiddleware([
      'auth' => App\Http\Middleware\Authenticate::class,
+     'valid_article_param' => App\Http\Middleware\ValidArticleParam::class,
  ]);
 
 /*

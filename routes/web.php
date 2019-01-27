@@ -17,6 +17,8 @@ $router->group([
 $router->group([
     'prefix' => 'artikel'
 ], function ($router) {
-    $router->get('gizi', 'ArticleController@gizi');
-    $router->get('penyakit', 'ArticleController@penyakit');
+    $router->get('gizi', 'GiziController@index');
+    $router->post('gizi/detail', ['middleware' => ['valid_article_param'], 'uses' => 'GiziController@detail']);
+    $router->get('penyakit', 'PenyakitController@index');
+    $router->post('penyakit/detail', ['middleware' => ['valid_article_param'], 'uses' => 'PenyakitController@detail']);
 });
