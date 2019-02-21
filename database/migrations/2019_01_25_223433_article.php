@@ -20,6 +20,7 @@ class Article extends Migration
             $table->text('article_content');
             $table->string('article_image');
             $table->integer('article_status');
+            $table->integer('article_count')->nullable();
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')

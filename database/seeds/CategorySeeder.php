@@ -26,6 +26,10 @@ class CategorySeeder extends Seeder
             [
                 'category_name' => 'penyakit',
                 'category_status' => 1
+            ],
+            [
+                'category_name' => 'tips',
+                'category_status' => 1
             ]
         ]);
     }
