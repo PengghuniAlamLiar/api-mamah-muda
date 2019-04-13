@@ -67,6 +67,7 @@ class PenyakitController extends Controller
             'user_name' => $gizi_detail->user->name,
             'user_avatar' => $gizi_detail->user->avatar
         ];
+
         return $response;
     }
 }

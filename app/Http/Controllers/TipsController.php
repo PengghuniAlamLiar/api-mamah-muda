@@ -24,13 +24,13 @@ class TipsController extends Controller
             return response()->json(FunctionsHelper::response(401, 0, []), 401);
         }
 
-        $gizi = Article::with('category', 'user')->active()->gizi()->get();
-        if (!$gizi || count($gizi) == 0) {
+        $tips = Article::with('category', 'user')->active()->tips()->get();
+        if (!$tips || count($tips) == 0) {
             return response()->json(FunctionsHelper::response(404, 0, []), 404);
         }
 
         $response = [];
-        foreach ($gizi as $value)
+        foreach ($tips as $value)
         {
             $response[] = $this->withResponse($value);
         }
@@ -43,30 +43,30 @@ class TipsController extends Controller
             return response()->json(FunctionsHelper::response(401, 0, []), 401);
         }
 
-        $gizi_detail = Article::with('category', 'user')
+        $tips_detail = Article::with('category', 'user')
             ->active()
-            ->gizi()
+            ->tips()
             ->where('article_slug', $request->article_slug)
             ->first();
 
-        if (!$gizi_detail || count($gizi_detail) == 0) {
+        if (!$tips_detail || count($tips_detail) == 0) {
             return response()->json(FunctionsHelper::response(404, 0, []), 404);
         }
-        return response()->json(FunctionsHelper::response(200, 1, $this->withResponse($gizi_detail)), 200);
+        return response()->json(FunctionsHelper::response(200, 1, $this->withResponse($tips_detail)), 200);
     }
 
-    protected function withResponse($gizi_detail)
+    protected function withResponse($tips_detail)
     {
         $response = [
-            'article_id' => $gizi_detail->article_id,
-            'article_title' => $gizi_detail->article_title,
-            'article_slug' => $gizi_detail->article_slug,
-            'article_content' => $gizi_detail->article_content,
-            'article_image' => $gizi_detail->article_image,
-            'article_created' => $gizi_detail->created_at,
-            'category_name' => $gizi_detail->category->category_name,
-            'user_name' => $gizi_detail->user->name,
-            'user_avatar' => $gizi_detail->user->avatar
+            'article_id' => $tips_detail->article_id,
+            'article_title' => $tips_detail->article_title,
+            'article_slug' => $tips_detail->article_slug,
+            'article_content' => $tips_detail->article_content,
+            'article_image' => $tips_detail->article_image,
+            'article_created' => $tips_detail->created_at,
+            'category_name' => $tips_detail->category->category_name,
+            'user_name' => $tips_detail->user->name,
+            'user_avatar' => $tips_detail->user->avatar
         ];
         return $response;
     }

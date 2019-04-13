@@ -21,4 +21,13 @@ $router->group([
     $router->post('gizi/detail', ['middleware' => ['valid_article_param'], 'uses' => 'GiziController@detail']);
     $router->get('penyakit', 'PenyakitController@index');
     $router->post('penyakit/detail', ['middleware' => ['valid_article_param'], 'uses' => 'PenyakitController@detail']);
+    $router->post('comments', ['middleware' => ['valid_comment_param'], 'uses' => 'CommentController@index']);
+});
+
+$router->get('posts', 'PostsController@index');
+
+$router->group([
+    'prefix' => 'diagnose'
+], function ($router) {
+    $router->get('gejala', 'GejalaController@index');
 });
