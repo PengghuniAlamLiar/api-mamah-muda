@@ -11,15 +11,15 @@ class GejalaController extends Controller
     protected $auth;
     public function __construct()
     {
-        $this->middleware('jwt.auth', ['except' => ['login']]);
-        $this->auth = Auth::guard()->user();
+        // $this->middleware('jwt.auth', ['except' => ['login']]);
+        // $this->auth = Auth::guard()->user();
     }
 
     public function index()
     {
-        if (!$this->auth) {
-            return response()->json(FunctionsHelper::response(401, 0, []), 401);
-        }
+        // if (!$this->auth) {
+        //     return response()->json(FunctionsHelper::response(401, 0, []), 401);
+        // }
 
         $gejala = Gejala::all();
         if (!$gejala) {
