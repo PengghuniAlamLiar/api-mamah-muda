@@ -10,6 +10,7 @@ class Article extends Model
     const GIZI = 1;
     const ARTIKEL = 2;
     const PENYAKIT = 3;
+    const TIPS = 3;
 
     protected $table = 'article';
 
