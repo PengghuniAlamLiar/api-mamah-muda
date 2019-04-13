@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Helpers\FunctionsHelper;
-use Dotenv\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
